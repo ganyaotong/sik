@@ -15,69 +15,70 @@
           padding-right: 5px;
         }
       }    
-#wrapper,#wrapper1 {
-   /* position: absolute; */
-    z-index: 1;
-    top: 45px;
-    bottom: 48px;
-    left: 0;
-    width: 100%;
-    height: 300px;
-    background: #ccc;
-    overflow: hidden;
-}
+        #wrapper,#wrapper1 {
+           /* position: absolute; */
+            z-index: 1;
+            top: 45px;
+            bottom: 48px;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            background: #ccc;
+            overflow: hidden;
+        }
 
-#scroller {
-    /*
-    position: absolute; */
-    z-index: 1;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    width: 100%;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    -ms-text-size-adjust: none;
-    -o-text-size-adjust: none;
-    text-size-adjust: none;
-}
+        #scroller {
+            /*
+            position: absolute; */
+            z-index: 1;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            width: 100%;
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
 
-#scroller ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    text-align: left;
-}
+        #scroller ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            text-align: left;
+        }
 
-#scroller li {
-    padding: 0 10px;
-    height: 40px;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #fff;
-    background-color: #fafafa;
-    font-size: 14px;
-}
+        #scroller li {
+            padding: 0 10px;
+            height: 40px;
+            border-bottom: 1px solid #ccc;
+            border-top: 1px solid #fff;
+            background-color: #fafafa;
+            font-size: 14px;
+        }
 
-.keymanager label{margin-right: 1em;}
-.my-edit{float: right;}
-.modal-body{
-    margin: 1em;
-}
-.modal-body label{
-    padding-right: .5em;
-}
-.modal-body select, .modal-body input, .modal-body textarea{
-    width: 210px;
-}
+        .keymanager label{margin-right: 1em;}
+        .my-edit{float: right;}
+        .modal-body{
+            margin: 1em;
+        }
+        .modal-body label{
+            padding-right: .5em;
+        }
+        .modal-body select, .modal-body input, .modal-body textarea{
+            width: 210px;
+        }
+        .well{margin-top: 1em;}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -111,7 +112,7 @@
     <div class="container-fluid">
         <div class="row">
             <!--/span-->
-            <div class="col-3">
+            <div class="col-md-3">
                 <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                   <a class="nav-link active" href="<?php echo $sideLinkKEY ?>" role="tab">密码管理</a>
                   <a class="nav-link" href="<?php echo $sideLinkDevice ?>" role="tab">设备管理</a>
@@ -119,9 +120,9 @@
                 <!--/.well -->
             </div>
 
-            <div class="col-9" style = "height:500px">
+            <div class="col-md-9" style = "height:500px">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h2>密码管理</h2>
                         <div id="wrapper">
                             <div id="scroller">
@@ -323,7 +324,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-md-12">
                         <div class="well">
                             <p><a href="#addkey" class="btn btn-primary" data-toggle="modal">创建密码</a> <a href="#addgroup" class="btn btn-primary" data-toggle="modal">创建分组</a></p>
                         </div>
@@ -335,203 +336,201 @@
         </div>
         <!--/row-->
 
-        <hr>
-
         <footer>
         </footer>
 
     </div>
-    <script type="text/javascript">
+<script type="text/javascript">
     var myScroll;
     var myScroll1;   
-$(document).ready(function() {
-    //checkkey();
-    myScroll = new IScroll('#wrapper', { mouseWheel: true });
-    myScroll1 = new IScroll('#wrapper1', { mouseWheel: true });
-    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-});
-
-function editkey(keyid,groupid,keylabel,keycontent,description){
-    $("#editkey").modal('toggle');
-    $("#editkeyid").val(keyid);
-    $("#editkey_groupid").val(groupid);
-    $("#editkeylabel").val(keylabel);
-    $("#editkeycontent").val(keycontent);
-    $("#editdescription").val(description);
-}
-
-function updateKey(){
-    var keyid = $("#editkeyid").val();
-    var groupid = $('#editkey_groupid').val();
-    var keylabel = $('#editkeylabel').val();
-    var keycontent = $('#editkeycontent').val();
-    //var keycontent_ = Encrypt(keycontent);
-    var description = $('#editdescription').val();
-    var message = $('.editmessage');
-
-    $.post('<?php echo $editkeyLink ?>',
-    {
-        keyid: keyid,
-        groupid: groupid,
-        keylabel: keylabel,
-        keycontent: keycontent,
-        description: description
-    } ,
-    function(data, textStatus, xhr) {
-        /*optional stuff to do after success */
-        var data = JSON.parse(data);
-        if (data[0].message=="ok") {
-            $('.editmessage').text('更新成功');
-            location.reload();
-        }else{
-            $('.editmessage').text('未知错误');
-        };
+    $(document).ready(function() {
+        //checkkey();
+        myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
+        myScroll1 = new IScroll('#wrapper1', { mouseWheel: true, click: true });
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     });
-}
 
-function editGroup(groupid,groupname){
-    $('#editgroup').modal('toggle');
-    $('#editgroupName').val(groupname);
-    $('#editgroupid').val(groupid);
-}
+    function editkey(keyid,groupid,keylabel,keycontent,description){
+        $("#editkey").modal('toggle');
+        $("#editkeyid").val(keyid);
+        $("#editkey_groupid").val(groupid);
+        $("#editkeylabel").val(keylabel);
+        $("#editkeycontent").val(keycontent);
+        $("#editdescription").val(description);
+    }
 
+    function updateKey(){
+        var keyid = $("#editkeyid").val();
+        var groupid = $('#editkey_groupid').val();
+        var keylabel = $('#editkeylabel').val();
+        var keycontent = $('#editkeycontent').val();
+        //var keycontent_ = Encrypt(keycontent);
+        var description = $('#editdescription').val();
+        var message = $('.editmessage');
 
-function deletekey(){
-    var keyid = $("#editkeyid").val();
-    var message = $('.editmessage');
-
-    $.post('<?php echo $deletekeyLink ?>',
-    {
-        keyid: keyid
-    } ,
-    function(data, textStatus, xhr) {
-        /*optional stuff to do after success */
-        console.log(data);
-        var data = JSON.parse(data);
-        if (data[0].message=="ok") {
-            $('.editmessage').text('更新成功');
-            location.reload();
-        }else{
-            $('.editmessage').text('未知错误');
-        };
-    });
-}
-
-function updateGroup(){
-    var groupname = $('#editgroupName').val();
-    var groupid = $('#editgroupid').val();
-    $.post('<?php echo $editgroupLink ?>',
-    {
-        groupid: groupid,
-        groupname:groupname
-    } ,
-    function(data, textStatus, xhr) {
-        /*optional stuff to do after success */
-        if (data==1) {
-            $('#editmessage').text('更新成功');
-            location.reload();
-        }else if (data==3) {
-            $('#editmessage').text('未知错误');
-        };
-    });
-}
-
-function deleteGroup(){
-    var groupid = $('#editgroupid').val();
-    $.post('<?php echo $deletegroupLink ?>',
-    {
-        groupid: groupid
-    } , function(data, textStatus, xhr) {
-        /*optional stuff to do after success */
-        if (data==1) {
-            $('#id'+groupid+'').remove();
-            myScroll1.refresh();
-            $('#editgroup').modal('toggle');
-        }else if (data==0) {
-            $('#editmessage').text('操作失败');
-        };
-    });
-}
-
-function addGroup(){
-    var groupName = $('#groupName').val();
-    var message = $('#message');
-    $.post('<?php echo $addgroupLink ?>', 
+        $.post('<?php echo $editkeyLink ?>',
         {
-            groupname: groupName
-        },
-         function(data, textStatus, xhr) {
-        /*optional stuff to do after success */
-
-        if (data==1) {
-            message.text('操作成功');
-            location.reload();
-        }else if(data ==0){
-            message.text('操作失败');
-        }else if (data==3) {
-            message.text('限制：只允许创建3个分组');
-        };
-    });
-}
-
-function addKey(){
-    var groupid = $('#groupid').val();
-    var keylabel = $('#keylabel').val();
-    var keycontent = $('#keycontent').val();
-    //var keycontent_ = Encrypt(keycontent);
-    var description = $('#description').val();
-    var message = $('.message');
-    $.post('<?php echo $addkeyLink ?>', 
-        {
+            keyid: keyid,
             groupid: groupid,
             keylabel: keylabel,
             keycontent: keycontent,
             description: description
-        },
-         function(data, textStatus, xhr) {
-        /*optional stuff to do after success */
-        var data = JSON.parse(data);
+        } ,
+        function(data, textStatus, xhr) {
+            /*optional stuff to do after success */
+            var data = JSON.parse(data);
+            if (data[0].message=="ok") {
+                $('.editmessage').text('更新成功');
+                location.reload();
+            }else{
+                $('.editmessage').text('未知错误');
+            };
+        });
+    }
 
-        if (data[0].message=="ok") {
-            message.text('操作成功');
-            location.reload();
-        }else if(data[0].message=="ng"){
-            message.text('操作失败');
-        }else if (data[0].message=="limited") {
-            message.text('限制：只允许创建3个分组');
-        };
-    });
-}
-
-
-function Encrypt(word){
-    var key = CryptoJS.enc.Utf8.parse(sessionStorage.getItem("key")); 
-    var iv = CryptoJS.enc.Utf8.parse('0.0.0.0'); 
-    srcs = CryptoJS.enc.Utf8.parse(word);
-    var encrypted = CryptoJS.AES.encrypt(srcs, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});
-    return encrypted.ciphertext.toString().toUpperCase();
-}
-function Decrypt(word){ 
-    var key = CryptoJS.enc.Utf8.parse(sessionStorage.getItem("key")); 
-    var iv = CryptoJS.enc.Utf8.parse('0.0.0.0'); 
-    var encryptedHexStr = CryptoJS.enc.Hex.parse(word);
-    var srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);
-    var decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});
-    var decryptedStr = decrypt.toString(CryptoJS.enc.Utf8); 
-    return decryptedStr.toString();
-}
+    function editGroup(groupid,groupname){
+        $('#editgroup').modal('toggle');
+        $('#editgroupName').val(groupname);
+        $('#editgroupid').val(groupid);
+    }
 
 
-function checkkey(){
-    if(!sessionStorage.getItem("key")){
+    function deletekey(){
+        var keyid = $("#editkeyid").val();
+        var message = $('.editmessage');
+
+        $.post('<?php echo $deletekeyLink ?>',
+        {
+            keyid: keyid
+        } ,
+        function(data, textStatus, xhr) {
+            /*optional stuff to do after success */
+            console.log(data);
+            var data = JSON.parse(data);
+            if (data[0].message=="ok") {
+                $('.editmessage').text('更新成功');
+                location.reload();
+            }else{
+                $('.editmessage').text('未知错误');
+            };
+        });
+    }
+
+    function updateGroup(){
+        var groupname = $('#editgroupName').val();
+        var groupid = $('#editgroupid').val();
+        $.post('<?php echo $editgroupLink ?>',
+        {
+            groupid: groupid,
+            groupname:groupname
+        } ,
+        function(data, textStatus, xhr) {
+            /*optional stuff to do after success */
+            if (data==1) {
+                $('#editmessage').text('更新成功');
+                location.reload();
+            }else if (data==3) {
+                $('#editmessage').text('未知错误');
+            };
+        });
+    }
+
+    function deleteGroup(){
+        var groupid = $('#editgroupid').val();
+        $.post('<?php echo $deletegroupLink ?>',
+        {
+            groupid: groupid
+        } , function(data, textStatus, xhr) {
+            /*optional stuff to do after success */
+            if (data==1) {
+                $('#id'+groupid+'').remove();
+                myScroll1.refresh();
+                $('#editgroup').modal('toggle');
+            }else if (data==0) {
+                $('#editmessage').text('操作失败');
+            };
+        });
+    }
+
+    function addGroup(){
+        var groupName = $('#groupName').val();
+        var message = $('#message');
+        $.post('<?php echo $addgroupLink ?>', 
+            {
+                groupname: groupName
+            },
+             function(data, textStatus, xhr) {
+            /*optional stuff to do after success */
+
+            if (data==1) {
+                message.text('操作成功');
+                location.reload();
+            }else if(data ==0){
+                message.text('操作失败');
+            }else if (data==3) {
+                message.text('限制：只允许创建3个分组');
+            };
+        });
+    }
+
+    function addKey(){
+        var groupid = $('#groupid').val();
+        var keylabel = $('#keylabel').val();
+        var keycontent = $('#keycontent').val();
+        //var keycontent_ = Encrypt(keycontent);
+        var description = $('#description').val();
+        var message = $('.message');
+        $.post('<?php echo $addkeyLink ?>', 
+            {
+                groupid: groupid,
+                keylabel: keylabel,
+                keycontent: keycontent,
+                description: description
+            },
+             function(data, textStatus, xhr) {
+            /*optional stuff to do after success */
+            var data = JSON.parse(data);
+
+            if (data[0].message=="ok") {
+                message.text('操作成功');
+                location.reload();
+            }else if(data[0].message=="ng"){
+                message.text('操作失败');
+            }else if (data[0].message=="limited") {
+                message.text('限制：只允许创建3个分组');
+            };
+        });
+    }
+
+
+    function Encrypt(word){
+        var key = CryptoJS.enc.Utf8.parse(sessionStorage.getItem("key")); 
+        var iv = CryptoJS.enc.Utf8.parse('0.0.0.0'); 
+        srcs = CryptoJS.enc.Utf8.parse(word);
+        var encrypted = CryptoJS.AES.encrypt(srcs, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});
+        return encrypted.ciphertext.toString().toUpperCase();
+    }
+    function Decrypt(word){ 
+        var key = CryptoJS.enc.Utf8.parse(sessionStorage.getItem("key")); 
+        var iv = CryptoJS.enc.Utf8.parse('0.0.0.0'); 
+        var encryptedHexStr = CryptoJS.enc.Hex.parse(word);
+        var srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);
+        var decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv,mode:CryptoJS.mode.CBC,padding: CryptoJS.pad.Pkcs7});
+        var decryptedStr = decrypt.toString(CryptoJS.enc.Utf8); 
+        return decryptedStr.toString();
+    }
+
+
+    function checkkey(){
+        if(!sessionStorage.getItem("key")){
+            $("#jiamikey").modal("toggle");
+        }
+    }
+
+    function sessionKey(){
+        var key = $("#jiamikeycontent").val();
+        sessionStorage.setItem("key",key);
         $("#jiamikey").modal("toggle");
     }
-}
-
-function sessionKey(){
-    var key = $("#jiamikeycontent").val();
-    sessionStorage.setItem("key",key);
-    $("#jiamikey").modal("toggle");
-}
 </script>
-    <?php echo $footer ?>;
+    <?php echo $footer ?>

@@ -25,7 +25,7 @@
     top: 45px;
     bottom: 48px;
     left: 0;
-    width: 300px;
+    width: 100%;
     height: 300px;
     background: #ccc;
     overflow: hidden;
@@ -114,7 +114,7 @@
         <div class="row">
             
             <!--/span-->
-            <div class="col-3">
+            <div class="col-md-3">
                 <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                   <a class="nav-link " href="<?php echo $sideLinkKEY ?>" role="tab">密码管理</a>
                   <a class="nav-link active" href="<?php echo $sideLinkDevice ?>" role="tab">设备管理</a>
@@ -122,9 +122,9 @@
                 <!--/.well -->
             </div>
 
-            <div class="col-9" style = "height:500px">
+            <div class="col-md-9" style = "height:500px">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h2>历史设备记录</h2>
 
                         <div id="wrapper">
@@ -144,7 +144,7 @@
                         <p class="well text-warning">设备初次使用，系统生成新的设备编码，显示在此表格。</p>
                     </div>
                     <!--/span-->
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h2>活动设备</h2>
 
                         <div id="wrapper1">
@@ -167,7 +167,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-md-12">
                         <h2>远程控制</h2>
                         <p class="well">所有的记录只为用户提供客观全面的信息，为用户进一步保护密码提供帮助，我们坚信这是大家需要的，并且是正确的。下面提供相应的功能，用户可以根据实际情况操作。</p>
                         <p><a class="btn btn-primary" href="#activitylog" data-toggle="modal">活动记录</a> <a class="btn btn-primary" onclick="refreshscroll()">注销登陆</a></p>
@@ -183,7 +183,6 @@
         </div>
         <!--/row-->
 
-        <hr>
 
 <div id="activitylog" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -264,70 +263,68 @@
 
 </div>
 
-    <script type="text/javascript">
- var myScroll;
-  var myScroll1;
-  var myScroll3;
-$(document).ready(function() {
-    
-    myScroll = new IScroll('#wrapper', { mouseWheel: true });
-    myScroll1 = new IScroll('#wrapper1', { mouseWheel: true });
-    myScroll3 = new IScroll('#wrapper3',{ mouseWheel: true });
-    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+<script type="text/javascript">
+    var myScroll;
+    var myScroll1;
+    var myScroll3;
+    $(document).ready(function() {
+        myScroll = new IScroll('#wrapper', { mouseWheel: true });
+        myScroll1 = new IScroll('#wrapper1', { mouseWheel: true });
+        myScroll3 = new IScroll('#wrapper3',{ mouseWheel: true });
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    });
 
-});
-
-function refreshscroll(){
-    $('#remoteLogout').modal('toggle');
-    $('#remoteLogout').on('shown', function () {
-  // do something…
-  myScroll3.refresh();
-})
-    
-}
-function logOutdevice(deviceCode){
-$.post('<?php echo $logoutLink ?>',
-{
-    code: deviceCode
-} ,
- function(data, textStatus, xhr) {
-    /*optional stuff to do after success */
-    if (data==1) {
-        $('#id'+deviceCode+'').children('a').addClass('disabled');
-    }else if (data==0) {
-
-    }else if(data==3){
-
-    };
-});
-}
-function enabledactivity(){
-$.post('<?php echo $enabledactivityLink ?>',{
-    param1: 'value1'
-} , function(data, textStatus, xhr) {
-    /*optional stuff to do after success */
-    if (data==1) {
-        $('#messageactivity').text('启用');
-        location.reload();
-    }else if(data==3){
-            $('#messageactivity').text('未知错误');
+    function refreshscroll(){
+        $('#remoteLogout').modal('toggle');
+        $('#remoteLogout').on('shown', function () {
+        // do something…
+        myScroll3.refresh();
+    })
+        
     }
-});
-}
-function disabledactivity(){
-    $.post('<?php echo $disabledactivityLink ?>',{
+    function logOutdevice(deviceCode){
+    $.post('<?php echo $logoutLink ?>',
+    {
+        code: deviceCode
+    } ,
+     function(data, textStatus, xhr) {
+        /*optional stuff to do after success */
+        if (data==1) {
+            $('#id'+deviceCode+'').children('a').addClass('disabled');
+        }else if (data==0) {
+
+        }else if(data==3){
+
+        };
+    });
+    }
+    function enabledactivity(){
+    $.post('<?php echo $enabledactivityLink ?>',{
         param1: 'value1'
     } , function(data, textStatus, xhr) {
         /*optional stuff to do after success */
         if (data==1) {
-            $('#messageactivity').text('关闭');
+            $('#messageactivity').text('启用');
             location.reload();
         }else if(data==3){
-            $('#messageactivity').text('未知错误');
+                $('#messageactivity').text('未知错误');
         }
     });
+    }
+    function disabledactivity(){
+        $.post('<?php echo $disabledactivityLink ?>',{
+            param1: 'value1'
+        } , function(data, textStatus, xhr) {
+            /*optional stuff to do after success */
+            if (data==1) {
+                $('#messageactivity').text('关闭');
+                location.reload();
+            }else if(data==3){
+                $('#messageactivity').text('未知错误');
+            }
+        });
 
-}
+    }
 </script>
 
-    <?php echo $footer ?>;
+    <?php echo $footer ?>

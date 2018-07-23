@@ -49,22 +49,22 @@
         <div class="row">
             
             <!--/span-->
-            <div class="col-3">
+            <div class="col-md-3">
                 <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                   <a class="nav-link" href="<?php echo $sideLinkKEY ?>" role="tab">密码管理</a>
                   <a class="nav-link" href="<?php echo $sideLinkDevice ?>" role="tab">设备管理</a>
                 </div>
               </div>
 
-            <div class="col-9" style = "height:500px">
+            <div class="col-md-9" style = "height:500px">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h2>链接日志</h2>
                         <p></p>
                         <p><a class="btn" href="#">查看 &raquo;</a></p>
                     </div>
                     <!--/span-->
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <h2>设备日志</h2>
                         <p></p>
                         <p><a class="btn" href="#">查看 &raquo;</a></p>
