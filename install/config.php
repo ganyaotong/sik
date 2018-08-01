@@ -21,5 +21,5 @@ define('DIR_LOGS', 			DIR_ROOT . '/system/logs/');
 define('DIR_CACHE', 		DIR_ROOT . '/system/cache/');		       
 define('DIR_LANGUAGE',      DIR_ROOT . '/install/language/');          
 define('DIR_IMAGE',         '/image/');                                
-define('DIR_DOWNLOAD',      DIR_ROOT . '/download/');                  
+define('DIR_DOWNLOAD',      DIR_ROOT . '/download/');          
 

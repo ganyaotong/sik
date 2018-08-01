@@ -9,6 +9,7 @@ class ModelCommonInit extends Model
     	$ctime = date('y-m-d',time());
     }
 
+
     public function sql($sql){
     	foreach($sql as $b){ 
 			$c=$b.";"; 

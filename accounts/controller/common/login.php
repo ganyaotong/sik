@@ -9,7 +9,7 @@ class ControllerCommonLogin extends Controller
 	function index()
 	{
 		  if ($this->user->isLogged()) {  
-      		$this->redirect($this->url->link('common/home'));
+      		$this->redirect($this->url->link('common/key'));
     	}
     	if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()){
 
@@ -28,7 +28,7 @@ class ControllerCommonLogin extends Controller
         }
         if ($this->session->data['link'] == '') {
           # code...
-           $this->redirect($this->url->link('common/home'));
+           $this->redirect($this->url->link('common/key'));
         }
           $this->redirect($this->session->data['link']);
    
@@ -37,8 +37,8 @@ class ControllerCommonLogin extends Controller
     	}
     $this->session->data['link'] = $this->request->get['link'];
 
-    $this->data['LinkKey'] = $this->url->reLink('key','common/home','','ssl');
-    $this->data['LinKAccounts'] = $this->url->reLink('accounts','common/home');
+    $this->data['LinkKey'] = $this->url->reLink('key','common/key','','ssl');
+    $this->data['LinKAccounts'] = $this->url->reLink('accounts','common/key');
 
     $this->data['sideLinkKEY'] = $this->url->reLink('key','common/key');
 
