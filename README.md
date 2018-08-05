@@ -12,3 +12,12 @@ Run your domain/install
 
 # Introduction
 This password manager writen in PHP, this good deploy you Password manager servers and devlopment.
+
+
+# Make money
+coding, debug, test, design, dev, I can make it.
+
+## donation
+
+wechat wallet: privyofpope
+alipay wallet: 490852179@qq.com
