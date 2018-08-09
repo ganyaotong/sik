@@ -1,7 +1,7 @@
 <?php
 
 // 载入配置
-require_once('config.php');
+require_once(dirname(__FILE__).'./config.php');
 $sqlfile = 'install.sql';
 $sql = file_get_contents($sqlfile);
 $sql = str_replace("\r\n", "\n", $sql);

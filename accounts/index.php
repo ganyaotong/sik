@@ -1,6 +1,6 @@
 <?php
 // 载入配置
-require_once('config.php');
+require_once(dirname(__FILE__).'./config.php');
 
 // 启动框架
 require_once(DIR_SYSTEM . 'startup.php');
