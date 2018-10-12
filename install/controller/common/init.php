@@ -17,7 +17,7 @@ final class ControllerCommonInit extends Controller
 		if ($this->request->server['REQUEST_METHOD'] == 'POST'){
 			switch ($this->request->post['database']) {
 				case 0:
-					$this->database = "mysql";
+					$this->database = "mysqlli";
 					break;
 				default:
 					break;

@@ -23,3 +23,12 @@ define('DIR_LANGUAGE',      DIR_ROOT . '/install/language/');
 define('DIR_IMAGE',         '/image/');                                
 define('DIR_DOWNLOAD',      DIR_ROOT . '/download/');          
 
+
+define('DB_DRIVER',   'mysqlli');
+define('DB_HOSTNAME', '127.0.0.1:3306');
+define('DB_USERNAME', 'sik');
+define('DB_PASSWORD', 'demo');
+define('DB_DATABASE', 'iido_sik');
+define('DB_PREFIX',   '');
+
+?>

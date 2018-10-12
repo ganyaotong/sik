@@ -132,7 +132,7 @@ width: 210px;
                         <div id="scroller">
                             <ul>
                                 
-                                <?php foreach ($keyList as $key ) {?>
+                                <?php if(!empty($keyList)) foreach ($keyList as $key ) {?>
                                 <li class="keymanager"
                                     data-keyid="<?php echo  $key['key_id']; ?>"
                                     data-groupid="<?php echo  $key['group_id']; ?>"
@@ -154,7 +154,7 @@ width: 210px;
                     <div id="wrapper1">
                         <div id="scroller">
                             <ul>
-                                <?php foreach ($groupList as $group) { ?>
+                                <?php if(!empty($groupList)) foreach ($groupList as $group) { ?>
                                 <li id="id<?php echo $group['group_id']; ?>"><?php echo $group['name']; ?> <a class="btn btn-primary pull-right my-edit" onclick="editGroup('<?php echo $group['group_id']; ?>','<?php echo $group['name']; ?>')">编辑</a></li>
                                 <?php }?>
                                 
@@ -199,7 +199,7 @@ width: 210px;
                                 <div class="row">
                                     <label>密码分组</label>
                                     <select id="groupid">
-                                        <?php foreach ($groupList as $group) { ?>
+                                        <?php if(!empty($groupList)) foreach ($groupList as $group) { ?>
                                         <option value="<?php echo $group['group_id']; ?>"><?php echo $group['name']; ?></option>
                                         <?php }?>
                                     </select>
@@ -240,7 +240,7 @@ width: 210px;
                                 <div class="row">
                                     <label>密码分组</label>
                                     <select id="editkey_groupid">
-                                        <?php foreach ($groupList as $group) { ?>
+                                        <?php if(!empty($groupList)) foreach ($groupList as $group) { ?>
                                         <option value="<?php echo $group['group_id']; ?>"><?php echo $group['name']; ?></option>
                                         <?php }?>
                                     </select>

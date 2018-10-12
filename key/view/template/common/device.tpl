@@ -131,7 +131,7 @@
                             <div id="scroller">
                                 <ul>
                                 
-                                   <?php foreach ($deviceList as $device ) {?>
+                                   <?php if(!empty($deviceList)) foreach ($deviceList as $device ) {?>
                                    <li><?php echo $device['deviceName']; ?><span class="pull-right"><?php echo $device['dateAdded']; ?></span></li>
 
                                    <?php }?>
@@ -247,7 +247,7 @@
         <div id="wrapper3">
             <div id="scroller">
             <ul>
-            <?php foreach ($activityDevice as $device ) {?>
+            <?php if(!empty($activityDevice)) foreach ($activityDevice as $device ) {?>
             <li id="id<?php echo $device['deviceCode']; ?>"><?php echo $device['deviceName']; ?><a class="btn btn-danger pull-right my-edit" onclick="logOutdevice('<?php echo $device['deviceCode']; ?>')">注销</a><span class="pull-right"><?php echo $device['dateAdded']; ?></span></li>
             <?php }?>
         </ul>
