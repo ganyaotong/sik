@@ -61,7 +61,7 @@ $controller = new Front($registry);
 if (isset($request->get['route'])) {
 	$action = new Action($request->get['route']);
 } else {
-	$action = new Action('common/home');
+	$action = new Action('common/key');
 }
 //print_r($action);
 // Dispatch
