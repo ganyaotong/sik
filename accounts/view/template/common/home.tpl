@@ -45,6 +45,16 @@
         margin-bottom: 15px;
         padding: 7px 9px;
       }
+.tab-content{margin-top:1em;}
+.modal-body{
+margin: 1em;
+}
+.modal-body label{
+padding-right: .5em;
+}
+.modal-body select, .modal-body input, .modal-body textarea{
+width: 210px;
+}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -80,9 +90,11 @@
   <li class="nav-item">
     <a class="nav-link active" href="#edit">编辑信息</a>
   </li>
+  <!--
   <li class="nav-item">
     <a class="nav-link" href="#authenticator">两步验证</a>
   </li>
+  -->
   <li class="nav-item">
     <a class="nav-link" href="#changepwd">更改密码</a>
   </li>
@@ -137,28 +149,49 @@
 </div>
 </div>
 
-<div id="editdialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+<div id="editdialog" class="modal" tabindex="-1" role="dialog">
+ <div class="modal-dialog" role="document">
+ <div class="modal-content">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">编辑用户资料</h3>
+	<h5 class="modal-title">编辑用户资料</h5>
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
   </div>
   <div class="modal-body">
 
     <p class="pull-right span2"><strong></strong></p>
-    <label>用户名：</label><input type="text" placeholder="<?php echo $un; ?>" id="un" /><br>
-      <label>手机：</label><input type="text" placeholder="<?php echo $phone; ?>" id="phone" /><br>
-      <label>Email:</label><input type="email" placeholder="<?php echo $email; ?>" id="email" /><br>
+	<div class="row">
+		<label>用户名称</label>
+		<input type="text" placeholder="<?php echo $un; ?>" id="un" />
+	</div>
+	<div class="row">
+      <label>联系手机</label>
+	  <input type="text" placeholder="<?php echo $phone; ?>" id="phone" />
+	</div>
+	<div class="row">
+      <label>电子邮件</label>
+	  <input type="email" placeholder="<?php echo $email; ?>" id="email" />
+	</div>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-    <button class="btn btn-primary" onclick="updateinfo()">Update</button>
+    <button class="btn btn-primary" onclick="updateinfo()">更新</button>
+  </div>
+  </div>
   </div>
 </div>
 
-<div id="alertdialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+<div id="alertdialog" class="modal" tabindex="-1" role="dialog" >
+<div class="modal-dialog" role="document">
+ <div class="modal-content">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">消息</h3>
+	<h5 class="modal-title">消息</h5>
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
   </div>
   <div class="modal-body">
     <label id='alertdialogmsg'></label>
@@ -166,6 +199,8 @@
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+  </div>
+  </div>
   </div>
 </div>
 
@@ -184,10 +219,14 @@
   </div>
 </div>
 
-<div id="Authenticator" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="Authenticator" class="modal" tabindex="-1" role="dialog" >
+<div class="modal-dialog" role="document">
+ <div class="modal-content">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">消息</h3>
+	<h5 class="modal-title">消息</h5>
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
   </div>
   <div class="modal-body">
     
@@ -195,12 +234,18 @@
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
   </div>
+  </div>
+  </div>
 </div>
 
-<div id="AuthenticatorClose" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="AuthenticatorClose" class="modal" tabindex="-1" role="dialog" >
+<div class="modal-dialog" role="document">
+ <div class="modal-content">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">消息</h3>
+    <h5 class="modal-title">消息</h5>
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
   </div>
   <div class="modal-body">
     <p>你确定关闭两步验证功能?</p>
@@ -208,6 +253,8 @@
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
     <button class="btn btn-primary" onclick="closeTwo()">确定</button>
+  </div>
+  </div>
   </div>
 </div>
 

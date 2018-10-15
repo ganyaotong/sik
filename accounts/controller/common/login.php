@@ -35,7 +35,7 @@ class ControllerCommonLogin extends Controller
         
        
     	}
-    $this->session->data['link'] = $this->request->get['link'];
+	if(isset($this->request->get['link'])) $this->session->data['link'] = $this->request->get['link'];
 
     $this->data['LinkKey'] = $this->url->reLink('key','common/key','','ssl');
     $this->data['LinKAccounts'] = $this->url->reLink('accounts','common/key');

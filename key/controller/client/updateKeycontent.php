@@ -5,7 +5,17 @@
 */
 class ControllerClientUpdateKeycontent extends Controller
 {
-	
+	/*
+	* 功能描述：更新密码内容
+	* URL地址：client/updatekeycontent/index
+	* 请求方式：POST
+	* 请求参数：
+	*	字段：devicecode；说明：设备编码；类型：String；必须：Y
+	*	字段：keyid；说明；密码ID；类型：String；必须：Y
+	*	字段：keycontent；说明：密码内容；类型：String；必须：Y
+	* 返回结果：
+	*	字段：message；说明：成功返回true，失败返回false；类型：bool
+	*/
 	function index()
 	{
 		# code...

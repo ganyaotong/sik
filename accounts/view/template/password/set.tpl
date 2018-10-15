@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <title>Sign in EM-ACCOUNTS</title>
+    <title>配置用户密码</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -92,7 +92,7 @@ function setpwd(){
       /*optional stuff to do after success */
       if (data==1) {
         alert('验证成功，马上登陆');
-window.location.href="index.php?route=common/login&&link=";
+window.location.href="index.php?route=common/logout&&link=";
       }else if(data==0){
         $('#veridyCodeError').text('验证码错误');
 

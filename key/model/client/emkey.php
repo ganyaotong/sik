@@ -169,8 +169,10 @@ class ModelClientEmkey extends Model
 		}else{
 			return false;
 		}
-
+		
+		/*
 		$this->db->query("INSERT INTO " . DB_PREFIX . "KeyCipherter SET code = '" . $active_code . "', firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) ."',  email = '" . $this->db->escape($data['email']) . "',password = '" . $this->db->escape(md5($data['password'])) . "', status = '0', date_added = NOW()");
+		*/
 	}
 
 	function changefirstkey($user_id,$key_id,$keycontent){

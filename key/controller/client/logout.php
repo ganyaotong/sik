@@ -5,7 +5,15 @@
 */
 class ControllerClientLogout extends Controller
 {
-	
+	/*
+	* 功能描述：登出
+	* URL地址：client/logout/index
+	* 请求方式：POST
+	* 请求参数：
+	*	字段：code；说明：设备编码；类型：String；必须：Y
+	* 返回结果：
+	*	字段：message；说明：成功信息；类型：String；
+	*/
 	function index()
 	{
 		# code...

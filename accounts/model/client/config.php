@@ -10,7 +10,7 @@ class ModelClientConfig extends Model
 		$this->db->query("INSERT INTO " . DB_PREFIX . "KeyConfig SET user_id = '" . $data['user_id'] .  "', username = '" . $data['username'] ."',  firstname = '" . $data['firstname'] . "',lastname = '" . $data['lastname'] . "', status = '1', date_added = NOW()");
 		return true;
 	}
-
+	//查询是否使用
 	public function isUsed($user_id){
 		$config_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "KeyCipherter WHERE user_id = '" . (int)$user_id . "' AND status = '3'");
     	if ($config_query->num_rows) {
@@ -19,7 +19,7 @@ class ModelClientConfig extends Model
       		return false;
     	}
 	}
-	//激活
+	//查询是否激活
 	public function activation($user_id) {
 		$config_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "KeyConfig WHERE user_id = '" . (int)$user_id . "' AND status = '1'");
     	if ($config_query->num_rows) {
